@@ -112,10 +112,14 @@ define(['./core', './markdown_helpers'], function(Markdown, MarkdownHelpers) {
     if ( jsonml.length && typeof jsonml[ 0 ] === "object" && !( jsonml[ 0 ] instanceof Array ) )
       attributes = jsonml.shift();
 
+
         if (tag == "htmlBlockOverride") {
-            var blockClasses = attributes.wrapperDivClasses;
-            return '<div class="' + blockClasses + '">' + attributes.htmlContent + '</div>';
+            var blockClasses = attributes.wrapperElementClasses;
+            var wrapperElement = attributes.wrapperElement;
+            return '<' + wrapperElement + ' class="' + blockClasses + '">' + attributes.htmlContent + '</' + wrapperElement + '>';
         }
+
+
     while ( jsonml.length )
       content.push( render_tree( jsonml.shift() ) );
 
