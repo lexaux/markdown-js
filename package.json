@@ -32,6 +32,8 @@
   "files": [
     "bin",
     "lib",
+    "inc",
+    "src",
     "Changes.md",
     "README.md"
   ],
